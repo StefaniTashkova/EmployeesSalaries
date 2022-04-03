@@ -1,0 +1,42 @@
+<div class="container page-container">
+  <h1>Search for employee</h1>
+  <div class="employeeInput-container mt-2">
+    <input type="text" (keyup)="getEmployeeInput(searchedEmployeeInput)" #searchedEmployeeInput
+           list="dynamicEmployeeInput" id="employeeInput">
+    <datalist id="dynamicEmployeeInput">
+      <option class="employee-option" *ngFor="let employee of employeeAutocompleteData"
+              [value]="employee.firstName +' '+ employee.surname">
+        {{employee.firstName + ' ' + employee.surname}}
+      </option>
+    </datalist>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Income Tax</th>
+      <th scope="col">National Insurance</th>
+      <th scope="col">Take Home</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="foundEmployee;else noSuchEmployee">
+      <td>{{foundEmployee.title}}</td>
+      <td>{{foundEmployee.firstName}}</td>
+      <td>{{foundEmployee.surname}}</td>
+      <td>{{foundEmployee.salary}}</td>
+      <td>{{foundEmployee.incomeTax}}</td>
+      <td>{{foundEmployee.nationalInsurance}}</td>
+      <td class="table-success">{{calculatedTakeHomeSalary}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <ng-template #noSuchEmployee><h3 class="error-message">Employee not found</h3></ng-template>
+</div>
+
+
+
+

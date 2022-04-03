@@ -1,0 +1,20 @@
+.page-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#employeeInput{
+  width: 240px;
+  height: 40px;
+  border-radius: 10px;
+}
+.error-message{
+  color: red;
+}
+table {
+  margin-top: 70px;
+}
+table tbody tr:hover{
+  cursor: pointer;
+}
+
